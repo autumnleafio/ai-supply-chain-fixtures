@@ -1,0 +1,6 @@
+node_modules/
+*.tgz
+verdaccio/storage/
+.DS_Store
+.npm-home/
+.npmrc.local
