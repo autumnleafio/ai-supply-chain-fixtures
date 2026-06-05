@@ -8,7 +8,7 @@ Research title:
 
 ## Purpose
 
-This repository stores safe, synthetic dependency packages used to evaluate software supply chain scanners.
+This repository stores safe, synthetic dependency packages and GitHub Action fixtures used to evaluate software supply chain scanners.
 
 It is separate from:
 
@@ -100,6 +100,12 @@ docker compose down -v
 - `@ai-supply-chain-fixtures/obfuscated-helper`: safe package with obfuscation-like lifecycle code
 
 These packages are intentionally synthetic. They are designed to produce evidence for scanners without executing harmful behavior.
+
+### GitHub Actions Fixtures
+
+- `github-actions/safe-indirect-action`: safe synthetic JavaScript action used to model indirect GitHub Actions supply chain dependency risk
+
+This action is referenced from evaluation workflows with `uses: autumnleafio/ai-supply-chain-fixtures/github-actions/safe-indirect-action@main`. It is intentionally inert and should not be used in production.
 
 ### PyPI Fixtures
 
