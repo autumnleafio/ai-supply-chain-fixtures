@@ -4,3 +4,4 @@ verdaccio/storage/
 .DS_Store
 .npm-home/
 .npmrc.local
+pypi/public/

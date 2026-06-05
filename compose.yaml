@@ -1,4 +1,13 @@
 services:
+  pypi-simple:
+    image: python:3.11-slim
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./pypi/public:/srv/pypi:ro
+    working_dir: /srv/pypi
+    command: python -m http.server 8080
+
   verdaccio:
     image: verdaccio/verdaccio:6.1.6
     ports:

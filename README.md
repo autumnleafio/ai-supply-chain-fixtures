@@ -26,6 +26,36 @@ Fixtures must be safe and inert.
 - Use suspicious-looking but non-harmful behavior only for research evaluation.
 - Clearly label every suspicious fixture as safe and synthetic.
 
+## Local PyPI Simple Index
+
+This repository also provides safe PyPI fixture wheels through a local PEP 503-style simple index.
+
+Build the local simple index from fixture source files:
+
+```bash
+pypi/scripts/build-simple-index.py
+```
+
+Start the local PyPI index server:
+
+```bash
+docker compose up -d pypi-simple
+```
+
+The local simple index is available at:
+
+```text
+http://localhost:8080/simple
+```
+
+Scanner containers should use:
+
+```text
+http://host.docker.internal:8080/simple
+```
+
+The generated `pypi/public/` directory is local build output and is not committed.
+
 ## Local npm Registry
 
 This repository uses Verdaccio as a Docker-based local npm registry.
@@ -61,7 +91,9 @@ Remove local registry data:
 docker compose down -v
 ```
 
-## npm Fixtures
+## Fixture Packages
+
+### npm Fixtures
 
 - `@ai-supply-chain-fixtures/benign-helper`: benign control package
 - `@ai-supply-chain-fixtures/lifecycle-helper`: safe package with an npm lifecycle script
@@ -69,10 +101,28 @@ docker compose down -v
 
 These packages are intentionally synthetic. They are designed to produce evidence for scanners without executing harmful behavior.
 
+### PyPI Fixtures
+
+- `ai-supply-chain-pypi-benign-helper`: benign control wheel
+- `ai-supply-chain-pypi-import-helper`: safe import-time source fixture
+- `ai-supply-chain-pypi-obfuscated-helper`: safe base64-like source fixture
+
+These wheels are generated locally into `pypi/public/` and served through the local simple index.
+
 ## Expected Evaluation Flow
+
+### npm Dependency Fixtures
 
 1. Start Verdaccio in Docker.
 2. Publish fixture packages to Verdaccio.
-3. Configure the evaluation target case to use `http://localhost:4873` or the CI-local registry URL.
+3. Configure the evaluation target case to use `http://localhost:4873` locally or `http://host.docker.internal:4873` from scanner containers.
 4. Run the scanner with `npm install --ignore-scripts` evidence collection.
 5. Confirm the AI evidence includes installed package manifests and lifecycle script files.
+
+### PyPI Dependency Fixtures
+
+1. Build `pypi/public/` with `pypi/scripts/build-simple-index.py`.
+2. Start the local PyPI simple index with `docker compose up -d pypi-simple`.
+3. Configure the evaluation target case to use `http://host.docker.internal:8080/simple` from scanner containers.
+4. Run the scanner with PyPI metadata collection enabled.
+5. Confirm the AI evidence includes pip resolution metadata and downloaded wheel metadata/source files.
