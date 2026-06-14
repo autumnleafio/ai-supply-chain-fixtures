@@ -31,21 +31,30 @@ def main() -> None:
         digest = hashlib.sha256(wheel_path.read_bytes()).hexdigest()
         wheels.append((normalize_name(fixture["distribution"]), wheel_path, digest))
 
+    wheels_by_project: dict[str, list[tuple[Path, str]]] = {}
     for normalized_name, wheel_path, digest in wheels:
+        wheels_by_project.setdefault(normalized_name, []).append((wheel_path, digest))
+
+    for normalized_name, project_wheels in sorted(wheels_by_project.items()):
         project_dir = SIMPLE_DIR / normalized_name
         project_dir.mkdir(parents=True)
-        relative_href = posixpath.relpath(
-            f"/packages/{wheel_path.name}",
-            f"/simple/{normalized_name}/",
-        )
+        wheel_links = []
+        for wheel_path, digest in sorted(project_wheels):
+            relative_href = posixpath.relpath(
+                f"/packages/{wheel_path.name}",
+                f"/simple/{normalized_name}/",
+            )
+            wheel_links.append(
+                f'<a href="{relative_href}#sha256={digest}">{wheel_path.name}</a><br>'
+            )
         (project_dir / "index.html").write_text(
             "<!doctype html>\n"
-            f"<html><body><a href=\"{relative_href}#sha256={digest}\">{wheel_path.name}</a></body></html>\n",
+            f"<html><body>{''.join(wheel_links)}</body></html>\n",
             encoding="utf-8",
         )
 
     links = "\n".join(
-        f'<a href="{name}/">{name}</a><br>' for name, _wheel_path, _digest in wheels
+        f'<a href="{name}/">{name}</a><br>' for name in sorted(wheels_by_project)
     )
     (SIMPLE_DIR / "index.html").write_text(
         f"<!doctype html>\n<html><body>{links}</body></html>\n",

@@ -1,0 +1,16 @@
+{
+  "name": "@ai-supply-chain-fixtures/update-helper",
+  "version": "1.1.0",
+  "description": "Safe suspicious-looking update version for supply chain scanner evaluation.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": false,
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  },
+  "keywords": [
+    "research-fixture",
+    "supply-chain",
+    "update-trigger"
+  ]
+}

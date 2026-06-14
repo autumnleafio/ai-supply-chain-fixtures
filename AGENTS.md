@@ -43,6 +43,6 @@ The evaluation target repository should depend on these fixtures through local r
 
 Current fixture categories:
 
-- npm packages resolved from local Verdaccio
-- PyPI wheels resolved from a local simple index
-- GitHub Actions referenced with `uses: autumnleafio/ai-supply-chain-fixtures/...@ref`
+- npm packages resolved from local Verdaccio, including versioned update-trigger fixtures
+- PyPI wheels resolved from a local simple index, including versioned update-trigger fixtures
+- GitHub Actions referenced with `uses: autumnleafio/ai-supply-chain-fixtures/...@ref`, including versioned update-trigger fixtures
