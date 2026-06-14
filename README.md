@@ -105,13 +105,13 @@ These packages are intentionally synthetic. They are designed to produce evidenc
 ### GitHub Actions Fixtures
 
 - `github-actions/safe-indirect-action`: safe synthetic JavaScript action used to model indirect GitHub Actions supply chain dependency risk
-- `github-actions/update-action-v1` and `github-actions/update-action-v2`: versioned safe actions used to model external action update scenarios
+- `github-actions/update-action`: versioned safe action used with `@update-action-v1` and `@update-action-v2` refs to model external action update scenarios
 
 This action is referenced from evaluation workflows with `uses: autumnleafio/ai-supply-chain-fixtures/github-actions/safe-indirect-action@main`. It is intentionally inert and should not be used in production.
 
 ### GitHub Actions Update Fixtures
 
-Use `update-action-v1` as the benign baseline action and `update-action-v2` as the safe suspicious-looking update action. Both are static fixtures for archive-read evidence collection and must not be used in production workflows.
+Use `github-actions/update-action@update-action-v1` as the benign baseline action and `github-actions/update-action@update-action-v2` as the safe suspicious-looking update action. This keeps the action path stable and changes only the Git ref, matching a realistic external action version update. Both refs are static fixtures for archive-read evidence collection and must not be used in production workflows.
 
 ### PyPI Fixtures
 

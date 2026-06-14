@@ -1,4 +1,4 @@
-name: Safe update action v1 fixture
+name: Safe update action fixture
 description: Safe benign GitHub Action baseline fixture for update-triggered supply chain research. Do not use in production.
 runs:
   using: node20
