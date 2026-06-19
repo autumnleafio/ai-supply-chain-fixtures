@@ -1,7 +1,7 @@
 {
   "name": "@ai-supply-chain-fixtures/lifecycle-helper",
   "version": "1.0.0",
-  "description": "Safe npm lifecycle script fixture for supply chain scanner evaluation.",
+  "description": "Dependency helper package with an npm lifecycle script.",
   "main": "index.js",
   "license": "UNLICENSED",
   "private": false,
@@ -9,7 +9,6 @@
     "postinstall": "node postinstall.js"
   },
   "keywords": [
-    "research-fixture",
     "supply-chain",
     "lifecycle"
   ]

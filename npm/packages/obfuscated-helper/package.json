@@ -1,7 +1,7 @@
 {
   "name": "@ai-supply-chain-fixtures/obfuscated-helper",
   "version": "1.0.0",
-  "description": "Safe obfuscation-like npm lifecycle fixture for supply chain scanner evaluation.",
+  "description": "Dependency helper package with encoded lifecycle data.",
   "main": "index.js",
   "license": "UNLICENSED",
   "private": false,
@@ -9,7 +9,6 @@
     "postinstall": "node postinstall.js"
   },
   "keywords": [
-    "research-fixture",
     "supply-chain",
     "obfuscation"
   ]

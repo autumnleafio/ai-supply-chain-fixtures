@@ -1,12 +1,12 @@
 {
-  "name": "@ai-supply-chain-fixtures/update-helper",
+  "name": "@ai-supply-chain-fixtures/minimal-helper",
   "version": "1.0.0",
-  "description": "Dependency update helper package.",
+  "description": "Minimal dependency helper package.",
   "main": "index.js",
   "license": "UNLICENSED",
   "private": false,
   "keywords": [
     "supply-chain",
-    "update"
+    "utility"
   ]
 }

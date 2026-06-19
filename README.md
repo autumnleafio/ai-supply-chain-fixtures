@@ -24,7 +24,15 @@ Fixtures must be safe and inert.
 - Do not include real malware, credential theft code, destructive behavior, or real exfiltration.
 - Use placeholder domains such as `example.invalid`.
 - Use suspicious-looking but non-harmful behavior only for research evaluation.
-- Clearly label every suspicious fixture as safe and synthetic.
+- Keep safety controls in this repository-level documentation and review policy.
+
+### Evaluation-input isolation
+
+Do not embed ground-truth labels such as `safe`, `benign`, `inert`, `fixture`, `test`, or `research-only` in package source, lifecycle scripts, package metadata, wheel metadata, GitHub Action metadata, action source, or packaged README files when those files can become scanner or model input.
+
+Evaluated artifacts should look like ordinary dependency artifacts and expose only observable behavior. Safety is enforced by implementation: use reserved domains, avoid network clients and destructive operations, make command examples side-effect free, and keep collection non-executing. Repository-level documentation and agent instructions remain the out-of-band safety record.
+
+After changing a fixture, search the publishable/packageable files for explanatory safety labels and verify that the intended detection signals remain without disclosing the expected assessment.
 
 ## Local PyPI Simple Index
 
@@ -95,7 +103,7 @@ docker compose down -v
 
 ### npm Fixtures
 
-- `@ai-supply-chain-fixtures/benign-helper`: benign control package
+- `@ai-supply-chain-fixtures/minimal-helper`: minimal control package
 - `@ai-supply-chain-fixtures/lifecycle-helper`: safe package with an npm lifecycle script
 - `@ai-supply-chain-fixtures/obfuscated-helper`: safe package with obfuscation-like lifecycle code
 - `@ai-supply-chain-fixtures/update-helper`: versioned safe package used to model benign `1.0.0` to suspicious-looking `1.1.0` update scenarios
@@ -104,10 +112,10 @@ These packages are intentionally synthetic. They are designed to produce evidenc
 
 ### GitHub Actions Fixtures
 
-- `github-actions/safe-indirect-action`: safe synthetic JavaScript action used to model indirect GitHub Actions supply chain dependency risk
+- `github-actions/indirect-action`: JavaScript action used to model indirect GitHub Actions supply chain dependency risk
 - `github-actions/update-action`: versioned safe action used with `@update-action-v1` and `@update-action-v2` refs to model external action update scenarios
 
-This action is referenced from evaluation workflows with `uses: autumnleafio/ai-supply-chain-fixtures/github-actions/safe-indirect-action@main`. It is intentionally inert and should not be used in production.
+This action is referenced from evaluation workflows with `uses: autumnleafio/ai-supply-chain-fixtures/github-actions/indirect-action@main`. The repository safety policy applies, and the action must not be used in production.
 
 ### GitHub Actions Update Fixtures
 
@@ -115,7 +123,7 @@ Use `github-actions/update-action@update-action-v1` as the benign baseline actio
 
 ### PyPI Fixtures
 
-- `ai-supply-chain-pypi-benign-helper`: benign control wheel
+- `ai-supply-chain-pypi-minimal-helper`: minimal control wheel
 - `ai-supply-chain-pypi-import-helper`: safe import-time source fixture
 - `ai-supply-chain-pypi-obfuscated-helper`: safe base64-like source fixture
 - `ai-supply-chain-pypi-update-helper`: versioned safe wheel used to model benign `1.0.0` to suspicious-looking `1.1.0` update scenarios

@@ -18,6 +18,15 @@ All fixtures must be safe and inert.
 - Do not publish fixture packages to public npm or PyPI registries.
 - Do not use GitHub Action fixtures in production workflows.
 
+## Evaluation-Input Isolation
+
+Keep ground-truth safety labels out of files that can be packaged, published, downloaded, or collected as scanner evidence.
+
+- Do not put words such as `safe`, `benign`, `inert`, `fixture`, `test`, or `research-only` in package/action source, lifecycle scripts, package metadata, wheel metadata, action metadata, or packaged README files when they reveal the expected assessment.
+- Document safety and expected behavior in repository-level `README.md`, `AGENTS.md`, or other out-of-band review documentation.
+- Enforce safety through implementation choices: reserved domains, no real network/exfiltration behavior, no destructive operations, and non-executing evidence collection.
+- Preserve the intended observable risk signals without explanatory comments that tell scanners or models how to classify them.
+
 ## Local Environment Rules
 
 Prefer Docker-based local fixture workflows.
@@ -35,7 +44,7 @@ Prefer Docker-based local fixture workflows.
 - `npm/scripts/publish-fixtures.sh`: publishes npm fixtures to the local registry
 - `pypi/packages/`: PyPI fixture source definitions
 - `pypi/scripts/build-simple-index.py`: builds local PyPI wheel fixtures and simple index output
-- `github-actions/`: safe synthetic GitHub Action fixtures referenced by evaluation workflows
+- `github-actions/`: GitHub Action fixtures referenced by evaluation workflows
 
 ## Research Design
 
