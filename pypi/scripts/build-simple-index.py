@@ -93,7 +93,6 @@ def metadata(fixture: dict[str, str]) -> str:
         f"Summary: {fixture['summary']}\n"
         "License: UNLICENSED\n"
         "Classifier: Private :: Do Not Upload\n"
-        "Project-URL: Research Fixture, https://github.com/autumnleafio/ai-supply-chain-fixtures\n"
         "\n"
         f"{fixture['description']}\n"
     )

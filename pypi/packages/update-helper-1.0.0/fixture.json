@@ -2,6 +2,6 @@
   "distribution": "ai-supply-chain-pypi-update-helper",
   "version": "1.0.0",
   "module": "ai_supply_chain_pypi_update_helper",
-  "summary": "Benign PyPI baseline package for update-triggered supply chain scenario evaluation.",
-  "description": "Safe benign PyPI fixture used as the pre-update baseline version."
+  "summary": "PyPI update-helper package.",
+  "description": "PyPI update-helper package version 1.0.0."
 }
