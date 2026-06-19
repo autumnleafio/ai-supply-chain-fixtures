@@ -1,6 +1,6 @@
 import base64
 
-_ENCODED_MESSAGE = "c2FmZSByZXNlYXJjaCBmaXh0dXJlOiBweXBpIG9iZnVzY2F0aW9uLWxpa2UgcGF0dGVybiBvbmx5"
+_ENCODED_MESSAGE = "ZGlhZ25vc3RpYy1tYXJrZXI6cHlwaS1vYmZ1c2NhdGlvbi1wYXR0ZXJu"
 
 
 def describe():

@@ -2,6 +2,6 @@
   "distribution": "ai-supply-chain-pypi-update-helper",
   "version": "1.1.0",
   "module": "ai_supply_chain_pypi_update_helper",
-  "summary": "Safe suspicious-looking PyPI update package for supply chain scanner evaluation.",
-  "description": "Safe PyPI fixture used to model a package update that introduces suspicious-looking inert source strings."
+  "summary": "Python dependency update helper package.",
+  "description": "Provides dependency update helper functions and command construction."
 }

@@ -1,0 +1,7 @@
+{
+  "distribution": "ai-supply-chain-pypi-minimal-helper",
+  "version": "1.0.0",
+  "module": "ai_supply_chain_pypi_minimal_helper",
+  "summary": "Minimal Python dependency helper package.",
+  "description": "Provides a small dependency helper module."
+}
