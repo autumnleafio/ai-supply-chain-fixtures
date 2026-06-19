@@ -1,5 +1,5 @@
 function describe() {
-  return "update-helper 1.0.0";
+  return "safe research fixture: update-helper 1.0.0 benign baseline";
 }
 
 module.exports = { describe };

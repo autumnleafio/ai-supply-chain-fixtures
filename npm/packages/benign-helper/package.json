@@ -1,9 +1,13 @@
 {
-  "name": "@ai-supply-chain-fixtures/utility-helper",
+  "name": "@ai-supply-chain-fixtures/benign-helper",
   "version": "1.0.0",
-  "description": "Utility helper package.",
+  "description": "Benign control package for supply chain scanner evaluation.",
   "main": "index.js",
   "license": "UNLICENSED",
   "private": false,
-  "keywords": ["utility-helper"]
+  "keywords": [
+    "research-fixture",
+    "supply-chain",
+    "benign"
+  ]
 }

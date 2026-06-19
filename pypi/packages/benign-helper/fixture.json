@@ -1,7 +1,7 @@
 {
-  "distribution": "ai-supply-chain-pypi-utility-helper",
+  "distribution": "ai-supply-chain-pypi-benign-helper",
   "version": "1.0.0",
-  "module": "ai_supply_chain_pypi_utility_helper",
-  "summary": "Utility helper package.",
-  "description": "General-purpose utility helper package."
+  "module": "ai_supply_chain_pypi_benign_helper",
+  "summary": "Benign PyPI control package for supply chain scanner evaluation.",
+  "description": "Safe benign PyPI fixture for scanner comparison."
 }

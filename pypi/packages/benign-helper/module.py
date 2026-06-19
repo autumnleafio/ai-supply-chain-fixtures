@@ -1,2 +1,2 @@
 def describe():
-    return "utility helper"
+    return "benign PyPI supply chain research fixture"

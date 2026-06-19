@@ -1,5 +1,5 @@
 function describe() {
-  return "lifecycle helper";
+  return "safe lifecycle supply chain research fixture";
 }
 
 module.exports = { describe };

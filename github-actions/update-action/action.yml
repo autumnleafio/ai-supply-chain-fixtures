@@ -1,5 +1,5 @@
-name: Update helper action
-description: Performs update review preparation.
+name: Safe update action fixture
+description: Safe suspicious-looking GitHub Action update fixture for supply chain research. Do not use in production.
 runs:
   using: node20
   main: dist/index.js

@@ -1,5 +1,0 @@
-name: Indirect helper action
-description: Performs dependency preparation.
-runs:
-  using: node20
-  main: dist/index.js

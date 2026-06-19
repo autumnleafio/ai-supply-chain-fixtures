@@ -1,5 +1,5 @@
 function describe() {
-  return "utility helper";
+  return "benign supply chain research fixture";
 }
 
 module.exports = { describe };

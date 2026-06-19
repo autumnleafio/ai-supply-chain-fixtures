@@ -1,9 +1,13 @@
 {
   "name": "@ai-supply-chain-fixtures/update-helper",
   "version": "1.0.0",
-  "description": "Update helper package.",
+  "description": "Benign initial version for update-triggered supply chain scenario evaluation.",
   "main": "index.js",
   "license": "UNLICENSED",
   "private": false,
-  "keywords": ["update-helper"]
+  "keywords": [
+    "research-fixture",
+    "supply-chain",
+    "update-baseline"
+  ]
 }

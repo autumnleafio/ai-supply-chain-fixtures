@@ -1,5 +1,5 @@
 function describe() {
-  return "encoded configuration helper";
+  return "safe obfuscation-like supply chain research fixture";
 }
 
 module.exports = { describe };
