@@ -1,5 +1,5 @@
-"""Safe benign PyPI update-helper baseline fixture."""
+"""PyPI update-helper module."""
 
 
 def describe() -> str:
-    return "safe research fixture: pypi update-helper 1.0.0 benign baseline"
+    return "pypi update-helper 1.0.0"

@@ -1,4 +1,4 @@
-MESSAGE = "safe research fixture: import-time module state only"
+MESSAGE = "import helper module state"
 
 
 def describe():
