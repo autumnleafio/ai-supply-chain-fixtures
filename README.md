@@ -113,13 +113,13 @@ These packages are intentionally synthetic. They are designed to produce evidenc
 ### GitHub Actions Fixtures
 
 - `github-actions/indirect-action`: JavaScript action used to model indirect GitHub Actions supply chain dependency risk
-- `github-actions/update-action`: versioned safe action used with `@update-action-v1` and `@update-action-v2` refs to model external action update scenarios
+- `github-actions/update-action`: versioned action used with `@update-action-v1`, `@update-action-v2`, and `@update-action-v3` refs to model external action update scenarios
 
 This action is referenced from evaluation workflows with `uses: autumnleafio/ai-supply-chain-fixtures/github-actions/indirect-action@main`. The repository safety policy applies, and the action must not be used in production.
 
 ### GitHub Actions Update Fixtures
 
-Use `github-actions/update-action@update-action-v1` as the benign baseline action and `github-actions/update-action@update-action-v2` as the safe suspicious-looking update action. This keeps the action path stable and changes only the Git ref, matching a realistic external action version update. Both refs are static fixtures for archive-read evidence collection and must not be used in production workflows.
+Use `github-actions/update-action@update-action-v1` as the baseline action. `@update-action-v2` preserves the earlier URL-only calibration state, while `@update-action-v3` adds uninvoked source paths containing `fetch()`, environment access, base64 decoding, and `childProcess.exec()`. This keeps the action path stable and changes only the Git ref. The evaluation scanner reads these refs as archives and does not execute the action. These refs must not be used in production workflows.
 
 ### PyPI Fixtures
 
