@@ -63,6 +63,9 @@ http://host.docker.internal:8080/simple
 ```
 
 The generated `pypi/public/` directory is local build output and is not committed.
+The wheel builder fixes ZIP timestamps, permissions, entry ordering, and uses
+uncompressed ZIP entries so unchanged fixture inputs produce byte-identical
+wheels without depending on zlib output.
 
 ## Local npm Registry
 

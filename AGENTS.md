@@ -35,6 +35,7 @@ Prefer Docker-based local fixture workflows.
 - Use the local PEP 503 simple index under `pypi/public/` for PyPI fixture wheels.
 - Do not install global npm or Python packages on the host unless explicitly requested.
 - Do not commit generated registry storage, generated package indexes, package tarballs, wheels, or `node_modules/`.
+- Keep generated PyPI wheels byte-for-byte reproducible. Use fixed archive timestamps, permissions, entry ordering, and uncompressed entries so repeated builds of unchanged fixture inputs produce the same SHA256 without depending on zlib output.
 
 ## Repository Structure
 
@@ -45,6 +46,15 @@ Prefer Docker-based local fixture workflows.
 - `pypi/packages/`: PyPI fixture source definitions
 - `pypi/scripts/build-simple-index.py`: builds local PyPI wheel fixtures and simple index output
 - `github-actions/`: GitHub Action fixtures referenced by evaluation workflows
+- `tests/`: fixture build reproducibility tests
+
+## Development Commands
+
+Run fixture tests with:
+
+```bash
+PYTHONPYCACHEPREFIX=/tmp/python-cache python3 -m unittest discover -s tests
+```
 
 ## Research Design
 

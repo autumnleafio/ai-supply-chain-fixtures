@@ -15,6 +15,8 @@ PACKAGES_DIR = ROOT / "packages"
 PUBLIC_DIR = ROOT / "public"
 WHEELHOUSE_DIR = PUBLIC_DIR / "packages"
 SIMPLE_DIR = PUBLIC_DIR / "simple"
+ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
+ZIP_FILE_MODE = 0o100644 << 16
 
 
 def main() -> None:
@@ -79,10 +81,24 @@ def build_wheel(package_dir: Path, fixture: dict[str, str]) -> Path:
     record_path = f"{dist_info}/RECORD"
     entries[record_path] = record(entries, record_path).encode("utf-8")
 
-    with zipfile.ZipFile(wheel_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for path, content in entries.items():
-            archive.writestr(path, content)
+    with zipfile.ZipFile(
+        wheel_path,
+        "w",
+        compression=zipfile.ZIP_STORED,
+        strict_timestamps=True,
+    ) as archive:
+        for path, content in sorted(entries.items()):
+            archive.writestr(reproducible_zip_info(path), content)
     return wheel_path
+
+
+def reproducible_zip_info(path: str) -> zipfile.ZipInfo:
+    info = zipfile.ZipInfo(path, date_time=ZIP_TIMESTAMP)
+    info.compress_type = zipfile.ZIP_STORED
+    info.create_system = 3
+    info.external_attr = ZIP_FILE_MODE
+    info.flag_bits = 0
+    return info
 
 
 def metadata(fixture: dict[str, str]) -> str:
