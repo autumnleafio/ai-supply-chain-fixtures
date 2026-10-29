@@ -1,0 +1,14 @@
+{
+  "name": "@ai-supply-chain-fixtures/record-adapter",
+  "version": "1.0.0",
+  "description": "Record presentation adapter.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": false,
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@ai-supply-chain-fixtures/record-core": "^1.0.0"
+  }
+}

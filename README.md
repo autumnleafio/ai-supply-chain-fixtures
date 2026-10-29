@@ -2,9 +2,11 @@
 
 Safe fixture packages for the MSc research prototype `ai-supply-chain-agent`.
 
-Research title:
+Original project theme:
 
 **Can AI Security Agents Achieve Defensive Advantage Against Software Supply Chain Attacks?**
+
+Current thesis working scope: evidence-grounded pre-adoption review of npm dependencies, with extraction and output-verification effects. The evaluation repository owns the current protocol. These fixtures are non-harmful materials for controlled review, not evidence of an observed compromise or autonomous-agent advantage.
 
 ## Purpose
 
@@ -112,6 +114,41 @@ docker compose down -v
 - `@ai-supply-chain-fixtures/update-helper`: versioned safe package used to model benign `1.0.0` to suspicious-looking `1.1.0` update scenarios
 
 These packages are intentionally synthetic. They are designed to produce evidence for scanners without executing harmful behavior.
+
+### npm dependency-chain pilot
+
+`@ai-supply-chain-fixtures/record-adapter@1.0.0` depends on
+`@ai-supply-chain-fixtures/record-core@^1.0.0` and delegates record formatting to
+it. The evaluation application pins each indirect core version with npm overrides.
+The six package directories contain only explicit package files; no packaged
+README or explanatory classification labels are included. Existing model-facing
+blinding must remove the fixture scope, package names, and repeated tarball names.
+
+Core versions preserve the ordinary formatting function while varying context:
+
+- `1.0.0`: initial record formatter.
+- `1.1.0`: trims the formatted value.
+- `1.2.0`: same formatter plus a `postinstall` script that prints the Node
+  version using `execFile(process.execPath, ["--version"])`.
+- `1.3.0`: same formatter plus `postinstall` with base64 decoding, `RUNNER_OS`
+  access, a reserved-domain string, and a fixed `printf record-format` command.
+- `1.4.0`: same formatter and the same helper function as `1.3.0`, with its
+  invocation and lifecycle declaration removed.
+
+No helper transmits data or accesses credentials. Collector validation disables
+lifecycle scripts; JavaScript is syntax-checked, not imported or executed.
+The default npm collector reads lifecycle source for `1.2.0` and `1.3.0`, but
+omits ordinary entry sources and the unreferenced helper in `1.4.0`. The explicit
+`--collect-npm-source` condition additionally captures all entry sources and that
+helper in this five-state pilot, with bounded inventory/coverage records. It
+does not establish helper reachability or runtime execution. These are
+coverage/calibration cases, not malware labels. Expectations live in the
+existing evaluation repository's `EVALUATION_EXPECTATIONS.md`.
+
+Run the isolated Docker validation from `ai-supply-chain-eval-targets` using
+`compose.npm-chain.yaml`; it publishes only these six packages into a temporary,
+non-public Verdaccio service and makes no model requests. Use a fresh Compose
+project/volume for each run because npm versions are immutable once published.
 
 ### GitHub Actions Fixtures
 

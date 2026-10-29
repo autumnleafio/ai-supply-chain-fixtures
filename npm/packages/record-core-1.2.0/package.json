@@ -1,0 +1,15 @@
+{
+  "name": "@ai-supply-chain-fixtures/record-core",
+  "version": "1.2.0",
+  "description": "Record formatting utilities.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": false,
+  "files": [
+    "index.js",
+    "postinstall.js"
+  ],
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  }
+}
