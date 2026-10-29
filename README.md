@@ -187,3 +187,25 @@ These wheels are generated locally into `pypi/public/` and served through the lo
 3. Configure the evaluation target case to use `http://host.docker.internal:8080/simple` from scanner containers.
 4. Run the scanner with PyPI metadata collection enabled.
 5. Confirm the AI evidence includes pip resolution metadata, downloaded wheel metadata/source files, and update-triggered version differences where applicable.
+
+
+## npm main-study families
+
+The additional `platform-info`, `expression-grid`, `request-layout` and
+`dispatch-summary` packages each have versions 1.0.0, 1.1.0 and 1.2.0 plus a
+fixed adapter. They are synthetic, non-destructive static-review fixtures:
+
+- platform-info varies a version-formatting entry, an exported fixed Node probe,
+  and a lifecycle script that reaches the probe through another module;
+- expression-grid varies ordinary formatting, decoding as data and a fixed pure
+  arithmetic expression passed to Function;
+- request-layout uses URL descriptors and local fetch/request implementations
+  that only return objects; it does not use real network clients;
+- dispatch-summary varies API references, a literal false branch and a public
+  RUNNER_OS condition around a fixed printf command.
+
+Use only the isolated local registry. Collection disables lifecycle scripts and
+performs syntax checks without loading target modules. Source code and package
+metadata contain no expected classifications. Source hashes, review expectations
+and scoring criteria live out of band in the evaluation repository. These
+families do not represent real malware or a representative OSS sample.

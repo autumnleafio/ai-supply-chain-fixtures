@@ -1,0 +1,13 @@
+{
+  "name": "@ai-supply-chain-fixtures/request-layout-adapter",
+  "version": "1.0.0",
+  "description": "Request layout descriptors.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@ai-supply-chain-fixtures/request-layout": "^1.0.0"
+  }
+}

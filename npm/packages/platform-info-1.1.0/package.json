@@ -1,0 +1,11 @@
+{
+  "name": "@ai-supply-chain-fixtures/platform-info",
+  "version": "1.1.0",
+  "description": "Runtime information formatting.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js",
+    "probe.js"
+  ]
+}

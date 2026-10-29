@@ -1,0 +1,10 @@
+{
+  "name": "@ai-supply-chain-fixtures/expression-grid",
+  "version": "1.2.0",
+  "description": "Numeric display expressions.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js"
+  ]
+}

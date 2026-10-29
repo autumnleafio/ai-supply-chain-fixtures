@@ -1,0 +1,10 @@
+{
+  "name": "@ai-supply-chain-fixtures/dispatch-summary",
+  "version": "1.0.0",
+  "description": "Dispatch environment summaries.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js"
+  ]
+}

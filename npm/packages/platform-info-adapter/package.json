@@ -1,0 +1,13 @@
+{
+  "name": "@ai-supply-chain-fixtures/platform-info-adapter",
+  "version": "1.0.0",
+  "description": "Runtime information formatting.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@ai-supply-chain-fixtures/platform-info": "^1.0.0"
+  }
+}

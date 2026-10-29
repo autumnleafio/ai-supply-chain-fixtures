@@ -1,0 +1,10 @@
+{
+  "name": "@ai-supply-chain-fixtures/request-layout",
+  "version": "1.1.0",
+  "description": "Request layout descriptors.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js"
+  ]
+}

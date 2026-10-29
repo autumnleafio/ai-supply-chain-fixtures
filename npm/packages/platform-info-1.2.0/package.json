@@ -1,0 +1,15 @@
+{
+  "name": "@ai-supply-chain-fixtures/platform-info",
+  "version": "1.2.0",
+  "description": "Runtime information formatting.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js",
+    "install.js",
+    "probe.js"
+  ],
+  "scripts": {
+    "postinstall": "node install.js"
+  }
+}
