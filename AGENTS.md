@@ -1,75 +1,26 @@
 # AGENTS.md
 
-Guidance for AI coding agents working in this repository.
+Maintain documentation in English. Preserve frozen research artifacts/model responses in their original form.
 
-## Documentation Language
+This repository owns npm dependency implementations for the PR-review study. Evaluation transitions/criteria belong in `ai-supply-chain-eval-targets`; scanner code belongs in `ai-supply-chain-agent`.
 
-Write maintained repository documentation in English. Preserve recorded model
-responses, experimental artifacts and frozen research data in their original
-form; do not translate those records in place.
+## Safety and evidence
 
-## Repository Role
+- No malware, credential theft, persistence, destructive behavior or real exfiltration. Use dummy data, reserved domains, fixed non-destructive commands and no real network clients under the current safety policy.
+- Never publish to public registries or use historical Action specimens in production.
+- Keep expected classifications/safety labels out of collected package source, metadata and packaged READMEs. Document safety and intended behavior only out of band.
+- Existing request-shaped functions are local descriptors, not genuine communication. No live receiver/transmission is required for static review, and this does not relax safety policy.
+- Source changes require reviewing evaluation source pins and freezing a new cohort; never change frozen expectations to fit model answers. Current synthetic families are development data, not malicious positives or representative OSS.
 
-This repository contains safe fixture packages and GitHub Action fixtures for software supply chain security research.
+## Active structure and local workflow
 
-It is not the scanner repository and not the evaluation target repository.
+- `npm/packages/`: sixteen current package directories, four families with three versions and one adapter each.
+- `compose.yaml`, `verdaccio/config.yaml`: local-only registry, no upstream registry.
+- `npm/scripts/`: explicit local-registry utilities; `.npmrc.local` is private and must be preserved.
+- `tests/`: package/source contracts; parse source, never import or run fixture modules.
 
-## Safety Rules
+Prefer the evaluation repository's `compose.npm-pr.yaml` collector and fixture-test service. It selects packages explicitly and uses a fresh isolated registry. Publish/install with scripts disabled; only `node --check` for syntax. No host installs, virtual environments, public publication, or committed registry data, node_modules, tarballs/caches.
 
-All fixtures must be safe and inert.
+## Archive boundary
 
-- Do not add real malware, credential theft, destructive payloads, persistence, or real exfiltration.
-- Use placeholder domains such as `example.invalid`.
-- Suspicious-looking code must be clearly synthetic and non-harmful.
-- Do not publish fixture packages to public npm or PyPI registries.
-- Do not use GitHub Action fixtures in production workflows.
-
-## Evaluation-Input Isolation
-
-Keep ground-truth safety labels out of files that can be packaged, published, downloaded, or collected as scanner evidence.
-
-- Do not put words such as `safe`, `benign`, `inert`, `fixture`, `test`, or `research-only` in package/action source, lifecycle scripts, package metadata, wheel metadata, action metadata, or packaged README files when they reveal the expected assessment.
-- Document safety and expected behavior in repository-level `README.md`, `AGENTS.md`, or other out-of-band review documentation.
-- Enforce safety through implementation choices: reserved domains, no real network/exfiltration behavior, no destructive operations, and non-executing evidence collection.
-- Preserve the intended observable risk signals without explanatory comments that tell scanners or models how to classify them.
-
-## Local Environment Rules
-
-Prefer Docker-based local fixture workflows.
-
-- Use Verdaccio through `compose.yaml` for npm registry simulation.
-- Use the local PEP 503 simple index under `pypi/public/` for PyPI fixture wheels.
-- Do not install global npm or Python packages on the host unless explicitly requested.
-- Do not commit generated registry storage, generated package indexes, package tarballs, wheels, or `node_modules/`.
-- Keep generated PyPI wheels byte-for-byte reproducible. Use fixed archive timestamps, permissions, entry ordering, and uncompressed entries so repeated builds of unchanged fixture inputs produce the same SHA256 without depending on zlib output.
-
-## Repository Structure
-
-- `compose.yaml`: local fixture services for Verdaccio and PyPI simple index
-- `verdaccio/config.yaml`: Verdaccio configuration
-- `npm/packages/`: npm fixture packages
-- `npm/scripts/publish-fixtures.sh`: publishes npm fixtures to the local registry
-- `pypi/packages/`: PyPI fixture source definitions
-- `pypi/scripts/build-simple-index.py`: builds local PyPI wheel fixtures and simple index output
-- `github-actions/`: GitHub Action fixtures referenced by evaluation workflows
-- `tests/`: fixture build reproducibility tests
-
-## Development Commands
-
-Run fixture tests with:
-
-```bash
-PYTHONPYCACHEPREFIX=/tmp/python-cache python3 -m unittest discover -s tests
-```
-
-## Research Design
-
-The primary research task is reviewing an npm dependency-update PR from pinned base/head artifacts and the supplied patch. Existing isolated-state families are development materials, not completed PR experiments. Define transitions and normal-update controls out of band. Static review does not require successful transmission or a live receiver; this does not relax the no-network/exfiltration safety policy or turn local API-lookalike functions into genuine communication evidence.
-
-The evaluation target repository should depend on these fixtures through local registries or external GitHub Action references. This keeps dependency source code outside the target repository while preserving reproducible, safe supply chain scenarios.
-
-Current fixture categories:
-
-- npm packages resolved from local Verdaccio, including versioned update-trigger fixtures
-- PyPI wheels resolved from a local simple index, including versioned update-trigger fixtures
-- GitHub Actions referenced with `uses: autumnleafio/ai-supply-chain-fixtures/...@ref`, including versioned update-trigger fixtures
+`archive-before-pr-cleanup-20261102` preserves removed initial npm samples, five-state record-core/update-helper families, PyPI builder/source and GitHub Action source with original instructions. Preserve all historical Action tags. Reproduce old experiments in a separate archived checkout using their pinned refs, not by reinstating old workflows in the active tree. Regenerable npm cache and wheel/index output may be removed; saved evidence/model answers and private configuration must be retained.

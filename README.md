@@ -1,213 +1,34 @@
 # ai-supply-chain-fixtures
 
-Safe fixture packages for the MSc research prototype `ai-supply-chain-agent`.
+Synthetic npm dependency packages for **evidence-grounded AI assistance for reviewing npm dependency-update PRs**. The evaluation repository owns transitions, criteria and scoring; the tool repository owns collection.
 
-Original project theme:
+## Active packages
 
-**Can AI Security Agents Achieve Defensive Advantage Against Software Supply Chain Attacks?**
+Sixteen directories provide four packages at versions 1.0.0/1.1.0/1.2.0 and one fixed adapter per family:
 
-Current thesis working scope: evidence-grounded AI assistance for reviewing npm dependency-update PRs, using paired base/head artifacts and a supplied patch. The evaluation repository owns the protocol. These fixtures are non-harmful static-review materials; existing isolated-state studies remain development evidence, not proof of PR-review usefulness, observed compromise or autonomous-agent advantage.
+| Family | Static-review variation |
+| --- | --- |
+| platform-info | Formatting, an exported fixed Node version probe, then an install entry reaching that probe |
+| expression-grid | Formatting, decoded data, then a fixed pure arithmetic expression evaluated with Function |
+| request-layout | URL descriptors and local request-shaped functions returning objects; no genuine networking |
+| dispatch-summary | API references, a literal false branch, then a public RUNNER_OS condition around fixed printf |
 
-## Purpose
+Source bytes and package identities are unchanged by cleanup. These inspected synthetic families supply eight development transitions, not a representative OSS sample, malicious positives or a final thesis corpus. Genuine communication and sensitive-data-flow coverage remain missing. Collection does not execute the packages; runtime behavior is not observed.
 
-This repository stores safe, synthetic dependency packages and GitHub Action fixtures used to evaluate software supply chain scanners.
+## Docker collection
 
-It is separate from:
+Use `compose.npm-pr.yaml` in `ai-supply-chain-eval-targets` for the normal path. Its collector publishes only selected packages into a fresh isolated Verdaccio service with no upstreams, resolves dependencies with lifecycle scripts disabled and records bounded source inventories. JavaScript is syntax-checked, not loaded. No host installs or model calls are needed.
 
-- `ai-supply-chain-agent`: scanner/tool repository
-- `ai-supply-chain-eval-targets`: evaluation target repository
+For a separate local registry, `docker compose up -d verdaccio` serves only on `127.0.0.1:4873`. The existing `npm/scripts/login-local-registry.sh` and `publish-fixtures.sh` are explicit local npm utilities; normal study collection uses the Docker publisher instead. Private `.npmrc.local` is retained. Never publish these packages publicly. Use a fresh registry volume for immutable package versions; stop with `docker compose down`.
 
-The evaluation target repository should depend on packages published from this repository into a local registry. It should not vendor these package sources directly.
+## Safety and input isolation
 
-## Safety Policy
+No real malware, credential theft, persistence, destructive payload or real exfiltration is permitted. Keep commands non-destructive and fixed, use reserved domains and dummy data, and do not add real network clients under the current policy. Static PR review does not require successful transmission or a live receiver; it does not turn request-shaped controls into genuine communication.
 
-Fixtures must be safe and inert.
+Keep expected classifications and words disclosing safety/test intent out of package source, metadata and packaged READMEs. Safety policy and expected behavior belong out of band here or in the evaluation repository. Preserve explicit package-file allowlists, dependency isolation and neutral model aliases. Test packaging/source contracts through the evaluation Docker fixture-test command.
 
-- Do not include real malware, credential theft code, destructive behavior, or real exfiltration.
-- Use placeholder domains such as `example.invalid`.
-- Use suspicious-looking but non-harmful behavior only for research evaluation.
-- Keep safety controls in this repository-level documentation and review policy.
+## Archived implementations
 
-### Evaluation-input isolation
+Unused initial npm samples, the five-state record-core family, update-helper, PyPI source/builder and GitHub Action implementations are preserved at [archive-before-pr-cleanup-20261102](https://github.com/autumnleafio/ai-supply-chain-fixtures/tree/archive-before-pr-cleanup-20261102) (`ca697adf092191e623cee43b0a32d97b80c5a8ef`). Original versioned Action tags remain intact. Historical results remain in the evaluation repository.
 
-Do not embed ground-truth labels such as `safe`, `benign`, `inert`, `fixture`, `test`, or `research-only` in package source, lifecycle scripts, package metadata, wheel metadata, GitHub Action metadata, action source, or packaged README files when those files can become scanner or model input.
-
-Evaluated artifacts should look like ordinary dependency artifacts and expose only observable behavior. Safety is enforced by implementation: use reserved domains, avoid network clients and destructive operations, make command examples side-effect free, and keep collection non-executing. Repository-level documentation and agent instructions remain the out-of-band safety record.
-
-After changing a fixture, search the publishable/packageable files for explanatory safety labels and verify that the intended detection signals remain without disclosing the expected assessment.
-
-## Local PyPI Simple Index
-
-This repository also provides safe PyPI fixture wheels through a local PEP 503-style simple index.
-
-Build the local simple index from fixture source files:
-
-```bash
-pypi/scripts/build-simple-index.py
-```
-
-Start the local PyPI index server:
-
-```bash
-docker compose up -d pypi-simple
-```
-
-The local simple index is available at:
-
-```text
-http://localhost:8080/simple
-```
-
-Scanner containers should use:
-
-```text
-http://host.docker.internal:8080/simple
-```
-
-The generated `pypi/public/` directory is local build output and is not committed.
-The wheel builder fixes ZIP timestamps, permissions, entry ordering, and uses
-uncompressed ZIP entries so unchanged fixture inputs produce byte-identical
-wheels without depending on zlib output.
-
-## Local npm Registry
-
-This repository uses Verdaccio as a Docker-based local npm registry.
-
-Start Verdaccio:
-
-```bash
-docker compose up -d verdaccio
-```
-
-Create a local Verdaccio npm user using repository-local npm config, then publish all npm fixtures:
-
-```bash
-npm/scripts/login-local-registry.sh
-npm/scripts/publish-fixtures.sh
-```
-
-The local registry is available at:
-
-```text
-http://localhost:4873
-```
-
-Stop the registry:
-
-```bash
-docker compose down
-```
-
-Remove local registry data:
-
-```bash
-docker compose down -v
-```
-
-## Fixture Packages
-
-### npm Fixtures
-
-- `@ai-supply-chain-fixtures/minimal-helper`: minimal control package
-- `@ai-supply-chain-fixtures/lifecycle-helper`: safe package with an npm lifecycle script
-- `@ai-supply-chain-fixtures/obfuscated-helper`: safe package with obfuscation-like lifecycle code
-- `@ai-supply-chain-fixtures/update-helper`: versioned safe package used to model benign `1.0.0` to suspicious-looking `1.1.0` update scenarios
-
-These packages are intentionally synthetic. They are designed to produce evidence for scanners without executing harmful behavior.
-
-### npm dependency-chain pilot
-
-`@ai-supply-chain-fixtures/record-adapter@1.0.0` depends on
-`@ai-supply-chain-fixtures/record-core@^1.0.0` and delegates record formatting to
-it. The evaluation application pins each indirect core version with npm overrides.
-The six package directories contain only explicit package files; no packaged
-README or explanatory classification labels are included. Existing model-facing
-blinding must remove the fixture scope, package names, and repeated tarball names.
-
-Core versions preserve the ordinary formatting function while varying context:
-
-- `1.0.0`: initial record formatter.
-- `1.1.0`: trims the formatted value.
-- `1.2.0`: same formatter plus a `postinstall` script that prints the Node
-  version using `execFile(process.execPath, ["--version"])`.
-- `1.3.0`: same formatter plus `postinstall` with base64 decoding, `RUNNER_OS`
-  access, a reserved-domain string, and a fixed `printf record-format` command.
-- `1.4.0`: same formatter and the same helper function as `1.3.0`, with its
-  invocation and lifecycle declaration removed.
-
-No helper transmits data or accesses credentials. Collector validation disables
-lifecycle scripts; JavaScript is syntax-checked, not imported or executed.
-The default npm collector reads lifecycle source for `1.2.0` and `1.3.0`, but
-omits ordinary entry sources and the unreferenced helper in `1.4.0`. The explicit
-`--collect-npm-source` condition additionally captures all entry sources and that
-helper in this five-state pilot, with bounded inventory/coverage records. It
-does not establish helper reachability or runtime execution. These are
-coverage/calibration cases, not malware labels. Expectations live in the
-existing evaluation repository's `EVALUATION_EXPECTATIONS.md`.
-
-Run the isolated Docker validation from `ai-supply-chain-eval-targets` using
-`compose.npm-chain.yaml`; it publishes only these six packages into a temporary,
-non-public Verdaccio service and makes no model requests. Use a fresh Compose
-project/volume for each run because npm versions are immutable once published.
-
-### GitHub Actions Fixtures
-
-- `github-actions/indirect-action`: JavaScript action used to model indirect GitHub Actions supply chain dependency risk
-- `github-actions/update-action`: versioned action used with `@update-action-v1`, `@update-action-v2`, and `@update-action-v3` refs to model external action update scenarios
-
-This action is referenced from evaluation workflows with `uses: autumnleafio/ai-supply-chain-fixtures/github-actions/indirect-action@main`. The repository safety policy applies, and the action must not be used in production.
-
-### GitHub Actions Update Fixtures
-
-Use `github-actions/update-action@update-action-v1` as the baseline action. `@update-action-v2` preserves the earlier URL-only calibration state, while `@update-action-v3` adds uninvoked source paths containing `fetch()`, environment access, base64 decoding, and `childProcess.exec()`. This keeps the action path stable and changes only the Git ref. The evaluation scanner reads these refs as archives and does not execute the action. These refs must not be used in production workflows.
-
-### PyPI Fixtures
-
-- `ai-supply-chain-pypi-minimal-helper`: minimal control wheel
-- `ai-supply-chain-pypi-import-helper`: safe import-time source fixture
-- `ai-supply-chain-pypi-obfuscated-helper`: safe base64-like source fixture
-- `ai-supply-chain-pypi-update-helper`: versioned safe wheel used to model benign `1.0.0` to suspicious-looking `1.1.0` update scenarios
-
-These wheels are generated locally into `pypi/public/` and served through the local simple index.
-
-## Expected Evaluation Flow
-
-### npm Dependency Fixtures
-
-1. Start Verdaccio in Docker.
-2. Publish fixture packages to Verdaccio.
-3. Configure the evaluation target case to use `http://localhost:4873` locally or `http://host.docker.internal:4873` from scanner containers.
-4. Run the scanner with `npm install --ignore-scripts` evidence collection.
-5. Confirm the AI evidence includes installed package manifests, dependency tree metadata, lifecycle script files, and update-triggered version differences where applicable.
-
-### PyPI Dependency Fixtures
-
-1. Build `pypi/public/` with `pypi/scripts/build-simple-index.py`.
-2. Start the local PyPI simple index with `docker compose up -d pypi-simple`.
-3. Configure the evaluation target case to use `http://host.docker.internal:8080/simple` from scanner containers.
-4. Run the scanner with PyPI metadata collection enabled.
-5. Confirm the AI evidence includes pip resolution metadata, downloaded wheel metadata/source files, and update-triggered version differences where applicable.
-
-
-## Provisional absolute-review npm families
-
-These packages were prepared for the earlier single-state study. The revised PR main experiment needs explicit base/head transitions, matched normal updates and new scoring; the package inventory supplies the initial eight development transitions implemented in the evaluation repository, not a final validated PR corpus. Successful live communication or a loopback receiver is not required for static PR-review evaluation. Fixture safety rules remain unchanged.
-
-The additional `platform-info`, `expression-grid`, `request-layout` and
-`dispatch-summary` packages each have versions 1.0.0, 1.1.0 and 1.2.0 plus a
-fixed adapter. They are synthetic, non-destructive static-review fixtures:
-
-- platform-info varies a version-formatting entry, an exported fixed Node probe,
-  and a lifecycle script that reaches the probe through another module;
-- expression-grid varies ordinary formatting, decoding as data and a fixed pure
-  arithmetic expression passed to Function;
-- request-layout uses URL descriptors and local fetch/request implementations
-  that only return objects; it does not use real network clients;
-- dispatch-summary varies API references, a literal false branch and a public
-  RUNNER_OS condition around a fixed printf command.
-
-Use only the isolated local registry. Collection disables lifecycle scripts and
-performs syntax checks without loading target modules. Source code and package
-metadata contain no expected classifications. Source hashes, review expectations
-and scoring criteria live out of band in the evaluation repository. These
-families do not represent real malware or a representative OSS sample.
+The active tree removes those inactive implementations, the old simple-index service, local npm cache and generated wheel/index output. Use a separate archived checkout and its instructions to reproduce old experiments. No saved experimental output or private npm configuration is removed.

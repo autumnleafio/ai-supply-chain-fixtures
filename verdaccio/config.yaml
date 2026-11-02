@@ -1,21 +1,17 @@
 storage: /verdaccio/storage
-
-uplinks:
-  npmjs:
-    url: https://registry.npmjs.org/
-
+auth:
+  htpasswd:
+    file: /verdaccio/storage/htpasswd
+    max_users: 10
+uplinks: {}
 packages:
   '@ai-supply-chain-fixtures/*':
     access: $all
-    publish: $all
-    unpublish: $all
-
-  '**':
-    access: $all
-    proxy: npmjs
-
+    publish: $authenticated
+    unpublish: $authenticated
 server:
   keepAliveTimeout: 60
-
-logs:
-  - { type: stdout, format: pretty, level: http }
+log:
+  type: stdout
+  format: pretty
+  level: warn

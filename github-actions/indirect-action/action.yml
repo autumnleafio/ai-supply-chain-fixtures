@@ -1,5 +1,0 @@
-name: Indirect dependency action
-description: Reviews dependency context for a workflow.
-runs:
-  using: node20
-  main: dist/index.js

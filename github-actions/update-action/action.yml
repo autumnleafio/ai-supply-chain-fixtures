@@ -1,5 +1,0 @@
-name: Dependency update action
-description: Reviews dependency update context for a workflow.
-runs:
-  using: node20
-  main: dist/index.js
