@@ -6,7 +6,7 @@ Original project theme:
 
 **Can AI Security Agents Achieve Defensive Advantage Against Software Supply Chain Attacks?**
 
-Current thesis working scope: evidence-grounded pre-adoption review of npm dependencies, with extraction and output-verification effects. The evaluation repository owns the current protocol. These fixtures are non-harmful materials for controlled review, not evidence of an observed compromise or autonomous-agent advantage.
+Current thesis working scope: evidence-grounded AI assistance for reviewing npm dependency-update PRs, using paired base/head artifacts and a supplied patch. The evaluation repository owns the protocol. These fixtures are non-harmful static-review materials; existing isolated-state studies remain development evidence, not proof of PR-review usefulness, observed compromise or autonomous-agent advantage.
 
 ## Purpose
 
@@ -189,7 +189,9 @@ These wheels are generated locally into `pypi/public/` and served through the lo
 5. Confirm the AI evidence includes pip resolution metadata, downloaded wheel metadata/source files, and update-triggered version differences where applicable.
 
 
-## npm main-study families
+## Provisional absolute-review npm families
+
+These packages were prepared for the earlier single-state study. The revised PR main experiment needs explicit base/head transitions, matched normal updates and new scoring; the package inventory supplies the initial eight development transitions implemented in the evaluation repository, not a final validated PR corpus. Successful live communication or a loopback receiver is not required for static PR-review evaluation. Fixture safety rules remain unchanged.
 
 The additional `platform-info`, `expression-grid`, `request-layout` and
 `dispatch-summary` packages each have versions 1.0.0, 1.1.0 and 1.2.0 plus a

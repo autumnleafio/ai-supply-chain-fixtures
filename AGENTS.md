@@ -2,6 +2,12 @@
 
 Guidance for AI coding agents working in this repository.
 
+## Documentation Language
+
+Write maintained repository documentation in English. Preserve recorded model
+responses, experimental artifacts and frozen research data in their original
+form; do not translate those records in place.
+
 ## Repository Role
 
 This repository contains safe fixture packages and GitHub Action fixtures for software supply chain security research.
@@ -57,6 +63,8 @@ PYTHONPYCACHEPREFIX=/tmp/python-cache python3 -m unittest discover -s tests
 ```
 
 ## Research Design
+
+The primary research task is reviewing an npm dependency-update PR from pinned base/head artifacts and the supplied patch. Existing isolated-state families are development materials, not completed PR experiments. Define transitions and normal-update controls out of band. Static review does not require successful transmission or a live receiver; this does not relax the no-network/exfiltration safety policy or turn local API-lookalike functions into genuine communication evidence.
 
 The evaluation target repository should depend on these fixtures through local registries or external GitHub Action references. This keeps dependency source code outside the target repository while preserving reproducible, safe supply chain scenarios.
 
