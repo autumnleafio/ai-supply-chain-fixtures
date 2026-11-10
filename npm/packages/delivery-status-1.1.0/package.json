@@ -1,0 +1,11 @@
+{
+  "name": "@ai-supply-chain-fixtures/delivery-status",
+  "version": "1.1.0",
+  "description": "Delivery status formatting.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js",
+    "send.js"
+  ]
+}

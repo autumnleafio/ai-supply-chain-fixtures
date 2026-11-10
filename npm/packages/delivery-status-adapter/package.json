@@ -1,0 +1,13 @@
+{
+  "name": "@ai-supply-chain-fixtures/delivery-status-adapter",
+  "version": "1.0.0",
+  "description": "Delivery status formatting.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@ai-supply-chain-fixtures/delivery-status": "^1.0.0"
+  }
+}

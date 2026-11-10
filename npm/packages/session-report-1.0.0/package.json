@@ -1,0 +1,11 @@
+{
+  "name": "@ai-supply-chain-fixtures/session-report",
+  "version": "1.0.0",
+  "description": "Session report formatting.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "index.js",
+    "session.js"
+  ]
+}
