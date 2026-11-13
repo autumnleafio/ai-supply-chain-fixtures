@@ -26,3 +26,15 @@ Prefer the evaluation repository's `compose.npm-pr.yaml` collector and fixture-t
 `archive-before-pr-cleanup-20261102` preserves removed initial npm samples, five-state record-core/update-helper families, PyPI builder/source and GitHub Action source with original instructions. Preserve all historical Action tags. Reproduce old experiments in a separate archived checkout using their pinned refs, not by reinstating old workflows in the active tree. Regenerable npm cache and wheel/index output may be removed; saved evidence/model answers and private configuration must be retained.
 
 The delivery-status family is the sole real-client exception: it tests an added install entry reaching an unchanged loopback HTTP helper. session-report compares preserved redaction with a fixed dummy authorization value flowing into an existing console sink. Keep ordinary-update controls and source bytes across matched states explicit. Both remain bounded synthetic mechanisms, not malware, real secret acquisition or observed transmission. Never extend the network exception to external hosts or arbitrary inputs without a separately authorized design revision.
+
+## Current research priority (2026-11-13)
+
+Source/observations comparison is primary; same-evidence fixed rules remain
+supplementary. Separate pipeline evidence loss from model judgment errors in the
+evaluation repository. Socket is related technology only; its supplementary
+experiment and public-package pilot are withdrawn. Do not publish or replace
+fixtures for that comparison. Keep all fixture sources and source pins unchanged.
+Do not add cases or tune packages against current answers.
+Optional controlled evidence removal/restoration requires a separate evaluation
+condition, not rewriting this frozen cohort. The evaluation README owns current
+analysis, collection recovery and the Gemini quota hold.

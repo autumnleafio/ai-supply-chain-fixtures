@@ -2,6 +2,18 @@
 
 Synthetic npm dependency packages for **evidence-grounded AI assistance for reviewing npm dependency-update PRs**. The evaluation repository owns transitions, criteria and scoring; the tool repository owns collection.
 
+## Current research role (2026-11-13)
+
+The thesis prioritizes source/observations comparison for the same dependency
+updates, separating evidence lost during extraction from model judgment errors.
+The fixed-rule comparison remains supplementary. Socket is related technology
+only; its supplementary experiment and public-package pilot are withdrawn. These
+packages remain unchanged synthetic development cases, not malicious positives
+or a product benchmark. Do not publish, redesign or expand them to fit observed answers.
+The evaluation repository owns the plan, interim analysis and quota hold; any
+optional controlled evidence-removal/restoration condition must be frozen
+separately without rewriting saved source or inputs.
+
 ## Active packages
 
 Twenty-four directories provide six packages at versions 1.0.0/1.1.0/1.2.0 and one fixed adapter per family:
